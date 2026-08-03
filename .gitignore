@@ -1,0 +1,19 @@
+# ข้อมูลลับ
+.env
+
+# ฐานข้อมูลลูกค้า
+data/*.db
+data/*.db-shm
+data/*.db-wal
+
+# Node
+node_modules/
+npm-debug.log*
+*.log
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store

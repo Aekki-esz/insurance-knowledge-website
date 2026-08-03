@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>ระบบจัดการผู้สนใจประกัน</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/admin.css" />
+  </head>
+  <body>
+    <header class="admin-header">
+      <div>
+        <p class="eyebrow">Samsung Life Insurance</p>
+        <h1>ข้อมูลลูกค้าที่ขอรับคำปรึกษา</h1>
+        <p>จัดการการติดต่อ บันทึกผล และส่งออกข้อมูลเป็น CSV</p>
+      </div>
+      <div class="header-actions">
+        <a class="button secondary" href="/" target="_blank" rel="noopener">เปิดหน้าเว็บไซต์</a>
+        <a class="button primary" href="/api/admin/leads.csv">ส่งออก CSV</a>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <section class="summary-grid" aria-label="สรุปจำนวนรายการ">
+        <article><span>รายการใหม่</span><strong id="countNew">0</strong></article>
+        <article><span>ติดต่อแล้ว</span><strong id="countContacted">0</strong></article>
+        <article><span>นัดหมาย</span><strong id="countAppointment">0</strong></article>
+        <article><span>ปิดเคส</span><strong id="countClosed">0</strong></article>
+      </section>
+
+      <section class="toolbar">
+        <label>
+          ค้นหา
+          <input id="searchInput" type="search" placeholder="ชื่อ เบอร์โทร อีเมล หรือเรื่องที่สนใจ" />
+        </label>
+        <label>
+          สถานะ
+          <select id="statusFilter">
+            <option value="">ทุกสถานะ</option>
+            <option value="new">รายการใหม่</option>
+            <option value="contacted">ติดต่อแล้ว</option>
+            <option value="appointment">นัดหมาย</option>
+            <option value="closed">ปิดเคส</option>
+          </select>
+        </label>
+        <button class="button secondary" id="refreshButton" type="button">รีเฟรชข้อมูล</button>
+      </section>
+
+      <p class="page-status" id="pageStatus" role="status" aria-live="polite"></p>
+      <section id="leadList" class="lead-list" aria-label="รายการลูกค้า"></section>
+    </main>
+
+    <template id="leadTemplate">
+      <article class="lead-card">
+        <div class="lead-heading">
+          <div>
+            <span class="lead-id"></span>
+            <h2 class="lead-name"></h2>
+            <time class="lead-date"></time>
+          </div>
+          <select class="lead-status" aria-label="สถานะการติดต่อ">
+            <option value="new">รายการใหม่</option>
+            <option value="contacted">ติดต่อแล้ว</option>
+            <option value="appointment">นัดหมาย</option>
+            <option value="closed">ปิดเคส</option>
+          </select>
+        </div>
+
+        <div class="lead-details">
+          <dl>
+            <div><dt>โทรศัพท์</dt><dd><a class="lead-phone"></a></dd></div>
+            <div><dt>อีเมล</dt><dd><a class="lead-email"></a></dd></div>
+            <div><dt>LINE ID</dt><dd class="lead-line"></dd></div>
+            <div><dt>เรื่องที่สนใจ</dt><dd class="lead-interest"></dd></div>
+            <div><dt>ช่องทางติดต่อ</dt><dd class="lead-channel"></dd></div>
+            <div><dt>เวลาที่สะดวก</dt><dd class="lead-time"></dd></div>
+          </dl>
+          <div class="message-box">
+            <strong>คำถาม/รายละเอียด</strong>
+            <p class="lead-message"></p>
+          </div>
+        </div>
+
+        <label class="note-label">
+          บันทึกของผู้ดูแล
+          <textarea class="lead-note" rows="3" placeholder="เช่น โทรแล้ว นัดวันที่ หรือข้อมูลติดตามเพิ่มเติม"></textarea>
+        </label>
+        <div class="card-actions">
+          <button class="button primary save-button" type="button">บันทึก</button>
+          <button class="button danger delete-button" type="button">ลบข้อมูล</button>
+          <span class="save-status" role="status"></span>
+        </div>
+      </article>
+    </template>
+
+    <script src="/admin.js" defer></script>
+  </body>
+</html>

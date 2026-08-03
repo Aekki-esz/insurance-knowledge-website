@@ -1,0 +1,13 @@
+{
+  "name": "insurance-knowledge-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "เว็บไซต์ให้ความรู้และรับคำปรึกษาด้านประกัน",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  }
+}
