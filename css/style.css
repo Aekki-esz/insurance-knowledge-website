@@ -1467,3 +1467,92 @@ button {
     font-size: 0.86rem;
   }
 }
+/* =========================================
+   ข้อมูลใบอนุญาตและ LINE ผู้ให้คำปรึกษา
+========================================= */
+
+.advisor-information {
+  margin: 20px 0 26px;
+}
+
+.advisor-license {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-bottom: 16px;
+  padding: 14px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.advisor-license strong {
+  font-weight: 600;
+}
+
+.advisor-license span {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.advisor-line-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 11px 18px;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #114f88;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.advisor-line-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+}
+
+.advisor-line-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  min-height: 38px;
+  padding: 6px;
+  border-radius: 10px;
+  background: #06c755;
+  color: #ffffff;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.advisor-line-link small,
+.advisor-line-link strong {
+  display: block;
+}
+
+.advisor-line-link small {
+  color: #627183;
+  font-size: 0.78rem;
+}
+
+.advisor-line-link strong {
+  color: #114f88;
+  font-size: 1rem;
+}
+
+@media (max-width: 640px) {
+  .advisor-license {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .advisor-line-link {
+    width: 100%;
+  }
+}
